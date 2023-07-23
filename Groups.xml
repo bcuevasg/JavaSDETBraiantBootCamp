@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AllTestSuite">
+    <test name="Groups">
+        <groups>
+            <define name="Sprint13">
+                <include name="backlog"/>
+                <include name="defects"/>
+            </define>
+
+            <run>
+                <include name="backlog"/>
+            </run>
+        </groups>
+        <classes>
+            <class name ="com.braiant.testNG.Groups"></class>
+        </classes>
+    </test>
+</suite>
