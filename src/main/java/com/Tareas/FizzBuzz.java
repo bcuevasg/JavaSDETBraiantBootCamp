@@ -17,12 +17,8 @@ public class FizzBuzz {
             System.out.println(value);
         }
 
-        /*fizzbuzz = switch (value) {
-            case (value % 5 == 0) -> "fizz";
-        }*/
-
         IntStream.of(value).mapToObj(
                         i -> i % 5 == 0 ? (i % 7 == 0 ? "FizzBuzz" : "Fizz") : (i % 7 == 0 ? "Buzz" : i))
-                .forEach(System.out::println);
+                       .forEach(System.out::println);
     }
 }

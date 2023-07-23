@@ -3,6 +3,7 @@ package com.Tareas;
 
 public class ReverseString {
     public static void main(String[] args) {
+        //Forma Clasica
         String lista = "Java";
         String listaR = "";
         for(int i = lista.length()-1; i>=0;i--){
@@ -11,7 +12,7 @@ public class ReverseString {
         }
         System.out.println(listaR);
 
-
+        //Forma con stream (Delcarativa sigo intentando entenderla)
         String reversed = lista.chars()
                 .mapToObj(c -> (char)c)
                 .reduce("",(s,c) -> c+s,(s1,s2) -> s2+s1 );

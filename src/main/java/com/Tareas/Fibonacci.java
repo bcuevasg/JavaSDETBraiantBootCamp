@@ -5,6 +5,7 @@ import java.util.stream.Stream;
 
 public class Fibonacci {
     public static void main(String[] args) {
+        // Forma clasica
         System.out.println("Fibonacci Series");
 
         int num1 = 0, num2 = 1, limit = 15;
@@ -16,7 +17,7 @@ public class Fibonacci {
             num1 = num2;
             num2 = sum;
         }
-
+        // Forma con stream (Declarativa)
         int[] fibo = {0,1};
         Stream.iterate(fibo, r -> new int[]{r[1],r[0] +r[1]})
                 .limit(14)
