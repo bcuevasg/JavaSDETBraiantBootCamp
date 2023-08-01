@@ -39,7 +39,7 @@ public class ResponsiveTesting {
         deviceMobEmu.clear();
     }
 // Este metodo usa los tamanos definidos por goodle ne tamaños sin problemas
-    @Test(enabled = false, dataProviderClass = MobileEmulations.class, dataProvider = "mobileEmulationsDimensions")
+    @Test(/*enabled = false,*/ dataProviderClass = MobileEmulations.class, dataProvider = "mobileEmulations")
     void responsiveTest(String deviceEmulator) {
         deviceMobEmu.put("deviceName", deviceEmulator);
         //ChromeOptions chromeOptions = new ChromeOptions();
@@ -48,7 +48,7 @@ public class ResponsiveTesting {
         driver = new ChromeDriver();
         driver.navigate().to(demoSiteUrl);
 
-        driver.manage().window().maximize();//agranda la instancia de chrome que se abrira
+        //driver.manage().window().maximize();//no maximizamos ya que estamos usando los emulations por data provider
 
         WebElement txtUsername = driver.findElement(By.id("user_login"));
         txtUsername.clear();
@@ -67,7 +67,7 @@ public class ResponsiveTesting {
 
     // En el test de abajo especificamos los valores de tamaño de la ventana
     //  esto definido en el Mobileumlation class
-    @Test(dataProviderClass = MobileEmulations.class, dataProvider = "mobileEmulationsDimensions")
+    @Test(enabled = false, dataProviderClass = MobileEmulations.class, dataProvider = "mobileEmulationsDimensions")
     void responsiveTestDimensions(String deviceEmulator, int width, int height) {
         driver = new ChromeDriver();
 

@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTestClass {
     protected WebDriver driver;
-    protected String demoSite = "https://demosite.titaniuminstitute.com.mx/wp-login.php?loggedout=true&wp_lang=en_US";
+    protected String demoSite = "https://demosite.titaniuminstitute.com.mx/wp-admin/admin.php?page=sch-dashboard";
     protected String userName ="admin";
     protected String password = "G3-ySzY%";
 
