@@ -3,8 +3,9 @@ package com.braiant.selenium;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.*;
 
 public class BaseTestClass {
     protected WebDriver driver;
@@ -12,14 +13,29 @@ public class BaseTestClass {
     protected String userName ="admin";
     protected String password = "G3-ySzY%";
 
-    @BeforeTest
-    void setup(){
-        WebDriverManager.chromedriver().setup();
-        //La accion de abajo abre el navegador
-        driver = new ChromeDriver();
+    @BeforeSuite
+    @Parameters("browser")
+    void setup(String browser){
+        switch (browser){
+            case "Chrome"->{
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+            }
+            case "Edge"->{
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+            }
+            case "Firefox"->{
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+            }
+            default -> System.err.println("Browser is not listed");
+        }
+        driver.manage().window().maximize();
+
     }
 
-    @AfterClass
+    @AfterSuite
     void closeWeb(){
         driver.quit();
     }

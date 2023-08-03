@@ -12,7 +12,7 @@ public class ImplictlyWaitExample extends BaseTestClass{
     String expResult = "Titanium School";
 
     @Test
-    void firstTest() throws InterruptedException {
+    void implicitWait() throws InterruptedException {
         driver.navigate().to(demoSite);
 
         WebElement txtUsername = driver.findElement(By.id("user_login"));
