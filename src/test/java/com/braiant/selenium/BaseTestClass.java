@@ -13,7 +13,7 @@ public class BaseTestClass {
     protected String userName ="admin";
     protected String password = "G3-ySzY%";
 
-    @BeforeSuite
+    @BeforeTest
     @Parameters("browser")
     void setup(String browser){
         switch (browser){
@@ -35,7 +35,7 @@ public class BaseTestClass {
 
     }
 
-    @AfterSuite
+    @AfterTest
     void closeWeb(){
         driver.quit();
     }
