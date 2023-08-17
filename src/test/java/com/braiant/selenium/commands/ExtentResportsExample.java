@@ -1,4 +1,4 @@
-package com.braiant.selenium;
+package com.braiant.selenium.commands;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;

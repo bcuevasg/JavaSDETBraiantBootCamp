@@ -5,7 +5,7 @@
         <parameter name="browser" value="Chrome">
             <classes>
                 <!--En la linea de abajo hay que cambiar el ultimo valor para correr Extent o Screenshot-->
-                <class name="com.braiant.selenium.ExtentResportsExample"></class>
+                <class name="com.braiant.selenium.commands.ExtentResportsExample"></class>
             </classes>
         </parameter>
     </test>

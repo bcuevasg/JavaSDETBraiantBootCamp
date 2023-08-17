@@ -1,4 +1,4 @@
-package com.braiant.selenium;
+package com.braiant.selenium.commands;
 
 import org.openqa.selenium.WindowType;
 import org.testng.annotations.Test;

@@ -1,8 +1,6 @@
-package com.braiant.selenium.patronesdediseño.pagepom;
+package com.braiant.selenium.patronesdediseño.pf;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,7 +15,7 @@ public class LoginPage extends MainPage {
     private WebElement txtPassword;
 
     //private By chkRememberMe = By.cssSelector("#rememberme");
-    @FindBy(css = "#rememeberme")
+    @FindBy(css = "#rememberme")
     private WebElement chkRememberMe;
 
     //private By btnLogin = By.xpath("//input[contains(@value,'Log')]");

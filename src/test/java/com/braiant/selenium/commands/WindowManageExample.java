@@ -1,4 +1,4 @@
-package com.braiant.selenium;
+package com.braiant.selenium.commands;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;

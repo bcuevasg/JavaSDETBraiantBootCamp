@@ -1,12 +1,10 @@
-package com.braiant.selenium.patronesdediseño.pagepom;
+package com.braiant.selenium.patronesdediseño.pf;
 
 import com.braiant.base.DriverFactory;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -33,7 +31,7 @@ public class MainPage{
     private WebElement btoOk;
 
     protected MainPage() {
-        PageFactory initElements(driver, this);
+        PageFactory.initElements(driver,this);
     }
 
     private String getSchoolName() {

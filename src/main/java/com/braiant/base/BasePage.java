@@ -1,2 +1,4 @@
-package com.braiant.base;public class BasePage {
+package com.braiant.base;
+
+public class BasePage {
 }

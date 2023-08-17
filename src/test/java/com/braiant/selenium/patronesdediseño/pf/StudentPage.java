@@ -1,9 +1,8 @@
-package com.braiant.selenium.patronesdediseño.pagepom;
+package com.braiant.selenium.patronesdediseño.pf;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,53 +12,65 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-public class StudentPage extends MainPage{
-    private By rdnGenderRadio = By.name("s_gender");
-    private By txtFirstName = By.id("firstname");
-    private By txtLasttName = By.id("lastname");
-    private By dtpDateOfBirth = By.name("s_dob");
-    private By tdSelectDay = By.className("day");
-    private By txtCurrentAddress = By.id("current_address");
-    private By drpCountry = By.name("s_country");
-    private By txtEmail = By.id("Email");
-    private By txtUsername = By.id("Username");
-    private By txtPassword = By.id("Password");
-    private By txtConfirmPass = By.id("ConfirmPassword");
-    private By txtRollNumber = By.id("Rollno");
-    private By trStudentRows = By.xpath("//tr[@role='row']");
+public class StudentPage extends MainPage {
+    @FindBy(name = "s_gender")
+    private List<WebElement> rdnGenders;
+    @FindBy(id = "firstname")
+    private WebElement txtFirstName;
+    @FindBy(id = "lastname")
+    private WebElement txtLastName;
+    @FindBy(name = "s_dob")
+    private WebElement dtpDateOfBirth;
+    @FindBy(className = "day")
+    private List<WebElement> tdSelectDays;
+    @FindBy(id = "current_address")
+    private WebElement txtCurrentAddress;
+    @FindBy(name = "s_pcountry")
+    private WebElement drpCountry;
+    @FindBy(id = "Email")
+    private WebElement txtEmail;
+    @FindBy(name = "Username")
+    private WebElement txtUserName;
+    @FindBy(id = "Password")
+    private WebElement txtPassword;
+    @FindBy(id = "ConfirmPassword")
+    private WebElement txtConfirmPass;
+    @FindBy(id = "Rollno")
+    private WebElement txtRollNumber;
+    @FindBy(xpath = "//tr[@role='row']")
+    private List<WebElement> trStudentRows;
 
 
     public void selectGender(String Gender){
-        List<WebElement> gender = driver.findElements(rdnGenderRadio);
-        for(WebElement optGender:gender){
-            if(optGender.getAttribute("value").equals(gender)){
+        for(WebElement optGender:rdnGenders){
+            if(optGender.getAttribute("value").equals(rdnGenders)){
                 optGender.click();
                 break;
             }
         }
     }
 
-    private void type(By element, String strType) {
-        driver.findElement(element).clear();
-        driver.findElement(element).sendKeys(strType);
+    private void type(WebElement element, String strType) {
+        element.clear();
+        element.sendKeys(strType);
     }
     public void typeFirstName(String firstName){
-        driver.findElement(txtFirstName).clear();
-        driver.findElement(txtFirstName).sendKeys(firstName);
+        txtFirstName.clear();
+        txtFirstName.sendKeys(firstName);
     }
 
     public void typeLastName(String lastName){
-        driver.findElement(txtLasttName).clear();
-        driver.findElement(txtLasttName).sendKeys(lastName);
+        txtLastName.clear();
+        txtLastName.sendKeys(lastName);
     }
 
     public void selectDateOfBirth(String selectDay){
-        driver.findElement(dtpDateOfBirth).click();
-        List<WebElement> days = driver.findElements(tdSelectDay);
-        new WebDriverWait(driver, Duration.ofSeconds(8))
-                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(dtpDateOfBirth));
+        dtpDateOfBirth.click();
 
-        for(WebElement day:days){
+        new WebDriverWait(driver, Duration.ofSeconds(8))
+                .until(ExpectedConditions.visibilityOfAllElements(dtpDateOfBirth));
+
+        for(WebElement day:tdSelectDays){
             if(day.getText().equals(selectDay)){
                 day.click();
                 break;
@@ -68,11 +79,11 @@ public class StudentPage extends MainPage{
     }
 
     public void slectCountry(String country){
-        new Select(driver.findElement(drpCountry)).selectByVisibleText(country);
+        new Select(drpCountry).selectByVisibleText(country);
     }
     public void typecurrentAddress(String currentAddress){
-        driver.findElement(txtCurrentAddress).clear();
-        driver.findElement(txtCurrentAddress).sendKeys(currentAddress);
+        txtCurrentAddress.clear();
+        txtCurrentAddress.sendKeys(currentAddress);
     }
 
     public void studentPersonalDetails(String ... detail){
@@ -89,7 +100,7 @@ public class StudentPage extends MainPage{
     }
 
     private void typeUserName(String userName) {
-        type(txtUsername, userName);
+        type(txtUserName, userName);
     }
 
     private void typePassword(String pass) {
@@ -109,16 +120,15 @@ public class StudentPage extends MainPage{
 
     public void schoolDetails(String rolNumber) {
         type(txtRollNumber, rolNumber);
-        driver.findElement(txtRollNumber).submit();
+        txtRollNumber.submit();
     }
 
     public void validateStudentIsAdded(String studentName) {
         new WebDriverWait(driver, Duration.ofSeconds(8))
-                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(trStudentRows));
+                .until(ExpectedConditions.visibilityOfAllElements(trStudentRows));
 
-        List<WebElement> students = driver.findElements(trStudentRows);
 
-        WebElement newStudentRow = students.get(students.size() - 1);
+        WebElement newStudentRow = trStudentRows.get(trStudentRows.size() - 1);
         Assert.assertTrue(newStudentRow.getText().contains(studentName));
         System.out.println(newStudentRow.getText() + " contains " + studentName);
     }

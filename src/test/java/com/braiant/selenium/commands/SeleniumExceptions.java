@@ -1,4 +1,4 @@
-package com.braiant.selenium;
+package com.braiant.selenium.commands;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
