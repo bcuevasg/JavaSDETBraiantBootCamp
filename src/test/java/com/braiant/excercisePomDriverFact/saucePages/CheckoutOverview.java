@@ -1,6 +1,5 @@
-package com.braiant.excercicePomDriverFact.saucePages;
+package com.braiant.excercisePomDriverFact.saucePages;
 
-import log4j2.Main;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;

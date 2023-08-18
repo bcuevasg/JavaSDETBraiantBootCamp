@@ -4,7 +4,7 @@
     <test name="Chrome Test">
         <parameter name="browser" value="CHROME"/>
         <classes>
-            <class name="com.braiant.excercicePomDriverFact.SauceTest"></class>
+            <class name="com.braiant.excercisePomDriverFact.SauceTest"></class>
         </classes>
 
     </test>

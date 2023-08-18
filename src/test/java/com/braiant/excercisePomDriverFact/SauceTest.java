@@ -1,14 +1,16 @@
-package com.braiant.excercicePomDriverFact;
+package com.braiant.excercisePomDriverFact;
 
 import com.braiant.base.BrowserType;
 import com.braiant.base.DriverFactory;
-import com.braiant.excercicePomDriverFact.saucePages.*;
+import com.braiant.excercisePomDriverFact.saucePages.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
+
+//Esta clase la ejecuto desde el archivo "testng.xml" en el root del proyecto
 public class SauceTest{
     String baseUrl = "https://www.saucedemo.com/";
     LoginPage loginPage;

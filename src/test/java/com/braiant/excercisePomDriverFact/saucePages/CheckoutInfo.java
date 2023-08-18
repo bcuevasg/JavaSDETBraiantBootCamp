@@ -1,6 +1,5 @@
-package com.braiant.excercicePomDriverFact.saucePages;
+package com.braiant.excercisePomDriverFact.saucePages;
 
-import log4j2.Main;
 import org.openqa.selenium.By;
 
 public class CheckoutInfo extends MainPage {

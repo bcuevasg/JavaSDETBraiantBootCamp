@@ -1,4 +1,4 @@
-package com.braiant.excercicePomDriverFact.saucePages;
+package com.braiant.excercisePomDriverFact.saucePages;
 
 import com.braiant.base.DriverFactory;
 import org.openqa.selenium.By;
