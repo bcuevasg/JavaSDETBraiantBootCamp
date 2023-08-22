@@ -5,7 +5,7 @@ import io.restassured.RestAssured;
 import org.testng.annotations.Test;
 
 public class PeekAndPrintExample {
-    private static final String BASE_URL = "https://api.github.com/user";
+    private static final String BASE_URL = "https://api.github.com/users";
 
     @Test
     void peekTest(){
@@ -14,7 +14,7 @@ public class PeekAndPrintExample {
     }
     @Test
     void prettypeekTest(){
-        RestAssured.get(BASE_URL)
+        RestAssured.get(BASE_URL)// si cambiamos get a options imprimira otros headers para manipulacion
                     .prettyPeek();
     }
 
