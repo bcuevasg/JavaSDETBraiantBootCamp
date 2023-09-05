@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 import java.net.URI;
 
 public class AndroidBaseTest {
-    public AndroidDriver driver;
+    protected AndroidDriver driver;
     AppiumDriverLocalService service;
 
     @BeforeTest

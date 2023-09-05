@@ -11,10 +11,10 @@ import java.util.Map;
 import static com.braiant.baseapi.ConfigFactory.getDefaultConfig;
 
 
-public class RestAssuredUtils{
+public class RestAssuredUtilsOld {
     public static RequestSpecification request;
 
-    public RestAssuredUtils(String baseUri, Map<String,String> headers) {
+    public RestAssuredUtilsOld(String baseUri, Map<String,String> headers) {
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.setBaseUri(baseUri);
         builder.addHeaders(headers);
