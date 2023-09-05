@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test preserve-order="true" name="User Endpoint Tests">
+        <parameter name="endpointUsers" value="users/"></parameter>
+        <parameter name="endpointResources" value="unknown/"></parameter>
+        <classes>
+            <!--<class name="com.braiant.restassured.demo.testcases.UserTest"></class>-->
+            <class name="com.braiant.restassured.demo.testcases.ResourceTest"></class>
+        </classes>
+    </test>
+</suite>

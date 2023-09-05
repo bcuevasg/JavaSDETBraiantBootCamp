@@ -3,7 +3,7 @@ package com.braiant.restassured.testcases;
 import com.braiant.restassured.dao.UserGoRest;
 import org.testng.annotations.Test;
 
-import static com.braiant.baseapi.RestAssuredUtils.*;
+import static com.braiant.baseapi.RestAssuredUtilsOld.*;
 
 public class UserGorestTest extends BaseTestClass{
     @Test(priority = 1)

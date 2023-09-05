@@ -1,6 +1,6 @@
 package com.braiant.restassured.testcases;
 
-import com.braiant.baseapi.RestAssuredUtils;
+import com.braiant.baseapi.RestAssuredUtilsOld;
 import com.braiant.restassured.dao.UserGoRest;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
@@ -31,6 +31,6 @@ public class BaseTestClass {
 
     @BeforeTest
     public void setup(){
-        new RestAssuredUtils(BASE_URL,expectedHeaders);
+        new RestAssuredUtilsOld(BASE_URL,expectedHeaders);
     }
 }
