@@ -1,9 +1,8 @@
 package com.braiant.selenium.patronesdediseño.testcases;
 
-import com.braiant.base.BrowserType;
-import com.braiant.base.DriverFactory;
+import com.braiant.baseuiweb.BrowserType;
+import com.braiant.baseuiweb.DriverFactory;
 import com.braiant.selenium.patronesdediseño.pf.LoginPage;
-import com.braiant.selenium.patronesdediseño.pf.MainPage;
 import com.braiant.selenium.patronesdediseño.pf.MenuPage;
 import com.braiant.selenium.patronesdediseño.pf.StudentPage;
 import org.testng.annotations.AfterTest;

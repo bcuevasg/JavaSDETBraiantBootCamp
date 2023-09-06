@@ -1,6 +1,6 @@
 package com.braiant.appium.ios.gestures;
 
-import com.ti.appium.ios.IOSBaseTes;
+import com.braiant.appium.ios.IOSBaseTes;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;

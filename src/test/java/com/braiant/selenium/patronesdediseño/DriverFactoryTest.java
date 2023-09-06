@@ -1,7 +1,7 @@
 package com.braiant.selenium.patronesdediseño;
 
-import com.braiant.base.BrowserType;
-import com.braiant.base.DriverFactory;
+import com.braiant.baseuiweb.BrowserType;
+import com.braiant.baseuiweb.DriverFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;

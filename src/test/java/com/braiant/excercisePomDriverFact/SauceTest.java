@@ -1,7 +1,7 @@
 package com.braiant.excercisePomDriverFact;
 
-import com.braiant.base.BrowserType;
-import com.braiant.base.DriverFactory;
+import com.braiant.baseuiweb.BrowserType;
+import com.braiant.baseuiweb.DriverFactory;
 import com.braiant.excercisePomDriverFact.saucePages.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;

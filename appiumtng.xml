@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Android Tests">
+        <parameter name="deviceName" value="Pixel 7 Pro API 33"></parameter>
+        <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"></parameter>
+        <parameter name="ipAddress" value="127.0.0.1"/>
+        <parameter name="deviceOsType" value="ANDROID"/>
+        <classes>
+            <class name="com.braiant.appium.patronesdediseño.testcases.SauceLabLoginTest"></class>
+        </classes>
+    </test>
+
+    <!--<test name="iOS Tests">
+        <parameter name="appName" value="iOS.Simulator.SauceLabs.Mobile.Sample.zip"/>
+        <parameter name="deviceName" value="iPhone 14"/>
+        <parameter name="ipAddress" value="127.0.0.1"/>
+        <parameter name="deviceOsType" value="IOS"/>
+        <classes>
+            &lt;!&ndash;<class name="com.braiant.restassured.demo.testcases.UserTest"></class>&ndash;&gt;
+            <class name="com.braiant.appium.patronesdediseño.MobileDriverFactoryExample"></class>
+        </classes>
+    </test>-->
+</suite>

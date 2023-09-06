@@ -1,4 +1,4 @@
-package com.braiant.base;
+package com.braiant.baseuiweb;
 
 import org.openqa.selenium.support.PageFactory;
 
