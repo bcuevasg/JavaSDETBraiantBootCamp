@@ -28,9 +28,9 @@ public class LoginScreen extends BaseScreen {
         txtPassword.sendKeys(password);
         return this;
     }
-    public LoginScreen submitLogin(){
+    public HomeScreen submitLogin(){
         btnLogin.click();
-        return this;
+        return (HomeScreen) (actualScreen = getInstance(HomeScreen.class));
     }
 
 }

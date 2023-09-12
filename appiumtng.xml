@@ -7,7 +7,7 @@
         <parameter name="ipAddress" value="127.0.0.1"/>
         <parameter name="deviceOsType" value="ANDROID"/>
         <classes>
-            <class name="com.braiant.appium.patronesdediseño.testcases.SauceLabLoginTest"></class>
+            <class name="com.braiant.appium.patronesdediseño.testcases.AddMultipleElements"></class>
         </classes>
     </test>
 
