@@ -1,4 +1,4 @@
-package com.braiant.frameworks.datadriven.testcases;
+package com.braiant.frameworks.datadriven.testcases.examples;
 
 import jdbc.DataBaseInfo;
 import org.testng.annotations.DataProvider;
@@ -17,9 +17,9 @@ public class SQLExample {
     }
 
     @Test(dataProvider = "getSQLProviderData")
-    public void sqlTest(LinkedHashMap<Object,Object> data){
+    public void sqlTest(LinkedHashMap<Object,Object> data) {
         data.forEach((key, value) -> {
-            System.out.println();
-        }
+            System.out.printf("Colum: %s and Value: %s\n", key, value);
+        });
     }
 }

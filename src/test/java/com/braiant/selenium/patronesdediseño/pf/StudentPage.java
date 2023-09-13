@@ -1,6 +1,5 @@
 package com.braiant.selenium.patronesdediseño.pf;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +9,6 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Map;
 
 public class StudentPage extends MainPage {
     @FindBy(name = "s_gender")
@@ -40,102 +38,89 @@ public class StudentPage extends MainPage {
     @FindBy(xpath = "//tr[@role='row']")
     private List<WebElement> trStudentRows;
 
-
-    public void selectGender(String Gender){
-        for(WebElement optGender:rdnGenders){
-            if(optGender.getAttribute("value").equals(rdnGenders)){
+    public StudentPage genderAs(String gender) {
+        //cambiarlo a Map
+        for (WebElement optGender : rdnGenders) {
+            if (optGender.getAttribute("id").equals(gender)) {
                 optGender.click();
                 break;
             }
         }
+        return this;
     }
 
-    private void type(WebElement element, String strType) {
-        element.clear();
-        element.sendKeys(strType);
-    }
-    public void typeFirstName(String firstName){
-        txtFirstName.clear();
-        txtFirstName.sendKeys(firstName);
+    public StudentPage withFirstName(String firstName) {
+        type(txtFirstName, firstName);
+        return this;
     }
 
-    public void typeLastName(String lastName){
+    public StudentPage andLastName(String lastName) {
         txtLastName.clear();
         txtLastName.sendKeys(lastName);
+        return this;
     }
 
-    public void selectDateOfBirth(String selectDay){
+    public StudentPage withDayOfBirth(String selectDay) {
         dtpDateOfBirth.click();
 
         new WebDriverWait(driver, Duration.ofSeconds(8))
-                .until(ExpectedConditions.visibilityOfAllElements(dtpDateOfBirth));
+                .until(ExpectedConditions.visibilityOfAllElements(tdSelectDays));
 
-        for(WebElement day:tdSelectDays){
-            if(day.getText().equals(selectDay)){
+        for (WebElement day : tdSelectDays) {
+            if (day.getText().equals(selectDay)) {
                 day.click();
                 break;
             }
         }
+        return this;
     }
 
-    public void slectCountry(String country){
+    public StudentPage andSelectCountry(String country) {
         new Select(drpCountry).selectByVisibleText(country);
+        return this;
     }
-    public void typecurrentAddress(String currentAddress){
+
+    public StudentPage andCurrentAddress(String currentAddress) {
         txtCurrentAddress.clear();
         txtCurrentAddress.sendKeys(currentAddress);
+        return this;
     }
 
-    public void studentPersonalDetails(String ... detail){
-        selectGender(detail[0]);
-        typeFirstName(detail[1]);
-        typeLastName(detail[2]);
-        selectDateOfBirth(detail[3]);
-        slectCountry(detail[4]);
-        typecurrentAddress(detail[5]);
-    }
-
-    private void typeEmailAddress(String email) {
+    public StudentPage emailAddressAs(String email) {
         type(txtEmail, email);
+        return this;
     }
 
-    private void typeUserName(String userName) {
+    public StudentPage withUserName(String userName) {
         type(txtUserName, userName);
+        return this;
     }
 
-    private void typePassword(String pass) {
+    public StudentPage withPassword(String pass) {
         type(txtPassword, pass);
+        return this;
     }
 
-    private void typeConfirmPassword(String confirmPass) {
+    public StudentPage andConfirmPassword(String confirmPass) {
         type(txtConfirmPass, confirmPass);
+        return this;
     }
 
-    public void accountInformation(Map<String, String> accountInfo) {
-        typeEmailAddress(accountInfo.get("email"));
-        typeUserName(accountInfo.get("user"));
-        typePassword(accountInfo.get("password"));
-        typeConfirmPassword(accountInfo.get("password"));
-    }
 
-    public void schoolDetails(String rolNumber) {
+    public StudentPage schoolDetails(String rolNumber) {
         type(txtRollNumber, rolNumber);
         txtRollNumber.submit();
+        return this;
     }
 
-    public void validateStudentIsAdded(String studentName) {
+    public StudentPage validateStudentIsAdded(String studentName) {
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.visibilityOfAllElements(trStudentRows));
-
 
         WebElement newStudentRow = trStudentRows.get(trStudentRows.size() - 1);
         Assert.assertTrue(newStudentRow.getText().contains(studentName));
         System.out.println(newStudentRow.getText() + " contains " + studentName);
-    }
-
-    public void deleteStudent() {
-        deleteRow();
-        confirmWindow();
+        return this;
     }
 
 }
