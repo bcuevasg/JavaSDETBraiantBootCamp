@@ -1,4 +1,4 @@
-package jdbc;
+package com.braiant.jdbc;
 
 import lombok.Data;
 

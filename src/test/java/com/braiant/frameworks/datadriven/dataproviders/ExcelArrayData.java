@@ -1,8 +1,6 @@
 package com.braiant.frameworks.datadriven.dataproviders;
 
-import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.*;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +13,7 @@ import static com.braiant.frameworks.datadriven.config.Constants.WORKBOOKS_FOLDE
 public class ExcelArrayData {
     private static Sheet sheet;
     private static Workbook workbook;
-    private  static final DataFormatter dataFormatter = new DataFormatter();
+    private static final DataFormatter dataFormatter = new DataFormatter();
 
     public static void readExcel(String workBook) throws IOException {
         workbook = WorkbookFactory.create(new File(WORKBOOKS_FOLDER + workBook));
@@ -23,7 +21,6 @@ public class ExcelArrayData {
 
     public static Sheet getWorkSheet(String sheetName){
         return workbook.getSheet(sheetName);
-
     }
 
     private static Object[][] asTwoDimensionalArray(List<LinkedHashMap<Object,Object>> interimResults){
@@ -35,45 +32,40 @@ public class ExcelArrayData {
         return results;
     }
 
-    private static LinkedHashMap<Object,Object> transforms (List<String> names, List<String> values){
-        LinkedHashMap<Object,Object> results = new LinkedHashMap<>();
-        for (int i= 0; i< names.size(); i++){
+    private static LinkedHashMap<Object, Object> transform(List<String> names, List<String> values){
+        LinkedHashMap<Object, Object> results = new LinkedHashMap<>();
+        for (int i=0; i< names.size(); i++){
             String key = names.get(i);
             String value = values.get(i);
-            results. put(key,value);
+            results.put(key,value);
         }
         return results;
     }
-
-
-    private static List<String> getValuiesFromEachRow(Row row){
+    private static List<String> getValuesInEachRow(Row row){
         List<String> data = new ArrayList<>();
         Iterable<Cell> columns = row::cellIterator;
-        for(Cell column: columns){
+        for (Cell column: columns){
             data.add(column.toString().equalsIgnoreCase("empty")?"":dataFormatter.formatCellValue(column));
         }
         return data;
     }
 
-    public static Object[][] getExcelTableArray(String excelWorkbook,String excelWorkSheet) throws IOException {
+    public static Object[][] getExcelTableArray(String excelWorkbook, String excelWorkSheet) throws IOException {
         readExcel(excelWorkbook);
         sheet = getWorkSheet(excelWorkSheet);
         Iterable<Row> rows = sheet::rowIterator;
-        List<LinkedHashMap<Object,Object>> results = new ArrayList<>();
+        List<LinkedHashMap<Object, Object>> results = new ArrayList<>();
         boolean header = true;
         List<String> keys = null;
-        for(Row row: rows){
-            List<String> values = getValuiesFromEachRow(row);
+        for (Row row: rows){
+            List<String> values = getValuesInEachRow(row);
             if (header){
                 header = false;
                 keys = values;
                 continue;
             }
-            results.add(transforms(keys,values));
+            results.add(transform(keys,values));
         }
         return asTwoDimensionalArray(results);
     }
-
-
-
 }

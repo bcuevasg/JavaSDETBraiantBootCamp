@@ -1,6 +1,6 @@
 package com.braiant.frameworks.datadriven.dataproviders;
 
-import jdbc.DataBaseInfo;
+import com.braiant.jdbc.DataBaseInfo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -60,7 +60,7 @@ public class SQLArrayData {
         List<LinkedHashMap<Object,Object>> results = new ArrayList<>();
         while(resultSet.next()){
             LinkedHashMap<Object,Object> resultMap = new LinkedHashMap<>();
-            for(int i = 1; i < colCount; i++){
+            for(int i = 2; i <= colCount; i++){
                 resultMap.put(resultSet.getMetaData().getColumnName(i),resultSet.getObject(i));
             }
             results.add(resultMap);

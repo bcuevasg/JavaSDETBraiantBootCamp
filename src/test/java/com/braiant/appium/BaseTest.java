@@ -17,15 +17,14 @@ import java.util.Map;
 public class BaseTest extends BaseScreen {
     AppiumDriverLocalService service;
     Map<String,String> userCredentials = new HashMap<>();
-
-
     @BeforeTest
     @Parameters({"deviceOsType","appName","ipAddress","deviceName"})
     public void setup(String deviceOsType, String appName, String ipAddress, String deviceName){
         //public void setup(String ... deviceSetup){
         DriverOptions options = new DriverOptions();
         options.setAppName(appName).setDeviceName(deviceName).setAppActivity("com.swaglabsmobileapp.MainActivity");
-                service = new AppiumServiceBuilder()
+
+        service = new AppiumServiceBuilder()
                 .withArgument(() -> "--use-plugins", "element-wait@2.0.3,gestures@3.0.0")
                 .withIPAddress(ipAddress)
                 .usingPort(4723)
@@ -34,7 +33,7 @@ public class BaseTest extends BaseScreen {
         service.start();
         MobileDriverFactory.getInstance().setMobileDriver(DeviceOSType.valueOf(deviceOsType),options);
         /*MobileDriverFactory.setAppName("Android.SauceLabs.Mobile.Sample.apk");
-        MobileDriverFactory.setDeviceName("Pixel 7 Pro API 33");
+        MobileDriverFactory.setDeviceName("S21 plus API 30");
         AppiumDriverLocalService service = new AppiumServiceBuilder()
                 .withIPAddress("127.0.0.1")
                 .usingPort(4723)
@@ -42,15 +41,15 @@ public class BaseTest extends BaseScreen {
 
         MobileDriverFactory.setAppActivity("com.swaglabsmobileapp.MainActivity");
         MobileDriverFactory.getInstance().setMobileDriver(DeviceOSType.ANDROID,service);*/
-
-        userCredentials.put("username", "standard_user");
-        userCredentials.put("password", "secret_sauce");
+        userCredentials.put("username","standard_user");
+        userCredentials.put("password","secret_sauce");
 
         actualScreen = getInstance(LoginScreen.class);
         actualScreen.as(LoginScreen.class)
                 .loginAs(userCredentials.get("username"))
                 .withPassword(userCredentials.get("password"))
                 .submitLogin();
+
     }
 
     @AfterTest

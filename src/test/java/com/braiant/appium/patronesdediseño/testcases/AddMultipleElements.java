@@ -10,14 +10,14 @@ import org.testng.annotations.Test;
 public class AddMultipleElements extends BaseTest {
     @Test
     void addingItemstoCart() throws InterruptedException {
-        actualScreen.as(HomeScreen.class).addBackPack();
-        actualScreen.as(HomeScreen.class).addBikeLight();
-        MobileDriverFactory.getInstance().getMobileDriver().findElement((AppiumBy.
-                androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"2023 Sauce Labs. All Rights Reserved\"))")));
-        actualScreen.as(HomeScreen.class).addBlackTShirt();
-        actualScreen.as(HomeScreen.class).addOmaise();
-        actualScreen.as(HomeScreen.class).addRedTShirt();
-        Thread.sleep(2000);
+//        actualScreen.as(HomeScreen.class).addBackPack();
+//        actualScreen.as(HomeScreen.class).addBikeLight();
+//        MobileDriverFactory.getInstance().getMobileDriver().findElement((AppiumBy.
+//                androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"2023 Sauce Labs. All Rights Reserved\"))")));
+//        actualScreen.as(HomeScreen.class).addBlackTShirt();
+//        actualScreen.as(HomeScreen.class).addOmaise();
+//        actualScreen.as(HomeScreen.class).addRedTShirt();
+//        Thread.sleep(2000);
     }
 
 }

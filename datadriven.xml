@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="com.braiant.AnnotationTransform"></listener>
+    </listeners>
+   <test name="Web UI Test JSON">
+        <parameter name="browser" value="CHROME"/>
+        <classes>
+            <class name="com.braiant.frameworks.datadriven.testcases.webui.SchoolLoginWebSQLTest"/>
+        </classes>
+    </test>
+
+    <test name="API Test JSON" parallel="classes">
+        <parameter name="endpoint" value="users/"/>
+        <classes>
+            <!--<class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserJSONTest"/>-->
+           <!--<class name="com.braiant.frameworks.datadriven.testcases.api.ResreqUserSQLTest"></class>-->
+        </classes>
+    </test>
+
+<!--    <test name="Android Tests">
+        <parameter name="deviceName" value="Pixel 7 Pro API 33"></parameter>
+        <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"></parameter>
+        <parameter name="ipAddress" value="127.0.0.1"/>
+        <parameter name="deviceOsType" value="ANDROID"/>
+        <classes>
+            <class name="com.braiant.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileSQLTest"></class>
+        </classes>
+    </test>-->
+
+    <!--<test name="iOS Test">
+        <parameter name="appName" value="iOS.Simulator.SauceLabs.Mobile.Sample.zip"/>
+        <parameter name="deviceName" value="iPhone 14"/>
+        <parameter name="ipAddress" value="127.0.0.1"/>
+        <parameter name="deviceOsType" value="IOS"/>
+        <classes>
+            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileJSONTest"></class>
+        </classes>
+    </test>-->
+</suite>

@@ -1,6 +1,6 @@
 package com.braiant.frameworks.datadriven.testcases.examples;
 
-import jdbc.DataBaseInfo;
+import com.braiant.jdbc.DataBaseInfo;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,7 @@ import static com.braiant.frameworks.datadriven.dataproviders.SQLArrayData.getQu
 public class SQLExample {
     @DataProvider
     public Object[][] getSQLProviderData() throws SQLException, IOException {
-        return getQueryTableArray(DataBaseInfo.DBNAME.dbConn, "studentdetail.sql");
+        return getQueryTableArray(DataBaseInfo.DBNAME.dbConn, "invalidstudents.sql");
     }
 
     @Test(dataProvider = "getSQLProviderData")

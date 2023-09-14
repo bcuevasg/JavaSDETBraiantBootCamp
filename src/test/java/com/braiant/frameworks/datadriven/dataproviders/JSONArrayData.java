@@ -13,30 +13,32 @@ import static com.braiant.frameworks.datadriven.config.Constants.JSONS_FOLDER;
 public class JSONArrayData {
     private static JsonArray jsonArray;
 
-    private static JsonArray getJsonArray(String fileName, String jsonObj){
-        try{
-            return JsonParser.parseReader(new FileReader(JSONS_FOLDER + fileName))
+    private static JsonArray getJsonArray(String filename, String jsonObj){
+        try {
+            return JsonParser.parseReader(new FileReader(JSONS_FOLDER+filename))
                     .getAsJsonObject()
                     .get(jsonObj)
-                    .getAsJsonArray();        
+                    .getAsJsonArray();
         }catch (FileNotFoundException e){
             System.err.println(e.getMessage());
         }
         return null;
     }
-    
-    public static Object[][] getJsonTableArray(String fileName, String jsonObj){
-        jsonArray = getJsonArray(fileName, jsonObj);
-        
-        Object[][] testData = new Object[jsonArray.size()][1];
-        for(int i=0; i<jsonArray.size(); i++){
-            JsonObject jsonInsideObj = jsonArray.get(i).getAsJsonObject();
-            LinkedHashMap<Object,Object> map = new LinkedHashMap<>();
 
-            jsonInsideObj.keySet().forEach(key-> {
-                map.put(key,jsonInsideObj.get(key).getAsString());
+    public static Object[][] getJsonTableArray(String filename, String jsonObj){
+        jsonArray = getJsonArray(filename,jsonObj);
+
+        Object[][] testData = new Object[jsonArray.size()][1];
+
+        for (int i = 0; i < jsonArray.size(); i++){
+            JsonObject jsonInsideObj = jsonArray.get(i).getAsJsonObject();
+            LinkedHashMap<Object, Object> map = new LinkedHashMap<>();
+
+            jsonInsideObj.keySet().forEach(key->{
+                map.put(key, jsonInsideObj.get(key).getAsString());
             });
-            testData[i][0]=map;
+
+            testData[i][0] = map;
         }
         return testData;
     }

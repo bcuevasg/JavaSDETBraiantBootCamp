@@ -1,4 +1,4 @@
-package jdbc;
+package com.braiant.jdbc;
 
 public enum DataBaseInfo {
     DBHOST(PropertyManager.getInstance().getProperty("DBHost")),

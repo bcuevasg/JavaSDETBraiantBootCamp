@@ -1,4 +1,4 @@
-package jdbc;
+package com.braiant.jdbc;
 
 import java.io.FileInputStream;
 import java.io.IOException;
